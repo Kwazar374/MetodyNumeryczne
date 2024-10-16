@@ -56,8 +56,8 @@ int main(int argc, char *argv[])
 {
     // Parametry pracy programu
     constexpr double x = 0.2; // Punkt w ktorym liczona jest pochodna
-    constexpr int liczba_krokow = 100; // Liczba krokow h
-    constexpr double h_min = 1e-8; // Minimalna wartosc h
+    constexpr int liczba_krokow = 300; // Liczba krokow h
+    constexpr double h_min = 1e-16; // Minimalna wartosc h
     constexpr double h_max = 1.0; // Maksymalna wartosc h
 
     // Generowanie wartosci h w skali logarytmicznej
