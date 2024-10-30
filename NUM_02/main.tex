@@ -1,0 +1,73 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\geometry{margin=1in}
+
+% Tytuł i autor
+\title{Raport z ćwiczenia NUM2\\Analiza uwarunkowania układów równań liniowych}
+\author{Bartosz Satoła}
+\date{30.10.2024}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Cel ćwiczenia}
+Celem ćwiczenia było rozwiązanie układów równań macierzowych \( A_i y = b \) dla dwóch zadanych macierzy \( A_1 \) i \( A_2 \), a także analiza wpływu zaburzenia wektora wyrazów wolnych \( b \) na stabilność rozwiązań. Dodatkowo sprawdzono, jak wprowadzenie małego zaburzenia \( \Delta b \), losowanego tak, aby jego norma była rzędu \( 10^{-6} \), wpływa na różnice w wynikach, co pozwala na ocenę uwarunkowania numerycznego macierzy.
+
+\section{Opis ćwiczenia}
+W ćwiczeniu rozwiązano układy równań liniowych:
+\[
+A_i y = b, \quad \text{dla } i = 1, 2
+\]
+gdzie wektor \( b \) jest dany jako:
+\[
+b = \begin{pmatrix} -2.8634904630 \\ -4.8216733374 \\ -4.2958468309 \\ -0.0877703331 \\ -2.0223464006 \end{pmatrix}.
+\]
+Następnie dodano do \( b \) losowe zaburzenie \( \Delta b \) o małej normie euklidesowej, a układy rozwiązano ponownie dla \( b + \Delta b \):
+\[
+A_i y = b + \Delta b.
+\]
+Wyniki dla macierzy \( A_1 \) i \( A_2 \) porównano, badając różnice między rozwiązaniami układów z pierwotnym \( b \) oraz zaburzonym \( b + \Delta b \).
+
+\section{Wstęp teoretyczny}
+\subsection{Uwarunkowanie macierzy}
+Uwarunkowanie macierzy jest miarą wrażliwości rozwiązania układu równań liniowych \( Ax = b \) na małe zmiany w danych wejściowych, tj. macierzy \( A \) lub wektora \( b \). Jeżeli niewielkie zaburzenie danych prowadzi do dużych zmian w rozwiązaniu \( x \), układ nazywamy \textit{źle uwarunkowanym}. 
+
+Z kolei dobrze uwarunkowane układy charakteryzują się stabilnością numeryczną, co oznacza, że małe błędy w danych (np. wynikające z błędów zaokrągleń lub zakłóceń w \( b \)) wywołują proporcjonalnie małe zmiany w wynikach.
+
+\subsection{Współczynnik uwarunkowania}
+Współczynnik uwarunkowania macierzy, oznaczany przez \( \kappa(A) \), jest wyrażony jako:
+\[
+\kappa(A) = ||A|| \cdot ||A^{-1}||
+\]
+gdzie \( || \cdot || \) oznacza normę macierzy. Wartość \( \kappa(A) \) mówi o stabilności układu:
+\begin{itemize}
+    \item Jeśli \( \kappa(A) \approx 1 \), układ jest dobrze uwarunkowany.
+    \item Im wyższe \( \kappa(A) \), tym bardziej układ jest podatny na błędy, a zatem gorzej uwarunkowany.
+\end{itemize}
+W praktyce, dobrze uwarunkowane układy zapewniają stabilność obliczeń i dokładność wyników, co jest szczególnie ważne w zastosowaniach, gdzie precyzja jest kluczowa.
+
+\section{Omówienie wyników}
+Po rozwiązaniu układów dla obu macierzy \( A_1 \) i \( A_2 \) oraz dla wektora \( b \) z perturbacją \( \Delta b \), uzyskano następujące obserwacje:
+\begin{itemize}
+    \item Dla macierzy \( A_1 \) rozwiązanie układu wykazało mniejsze odchylenie po wprowadzeniu perturbacji, co świadczy o jej lepszym uwarunkowaniu.
+    \item Macierz \( A_2 \), charakteryzująca się wyższym współczynnikiem uwarunkowania, wykazała większą wrażliwość na zaburzenie \( \Delta b \), co potwierdza, że układ jest gorzej uwarunkowany.
+    \item Wyniki te są zgodne z oczekiwaniami teoretycznymi, które wskazują, że macierze o wyższym współczynniku uwarunkowania są bardziej podatne na błędy związane z małymi perturbacjami danych.
+\end{itemize}
+
+\section{Wnioski}
+Z przeprowadzonego ćwiczenia można wyciągnąć następujące wnioski:
+\begin{itemize}
+    \item Układy równań liniowych dla dobrze uwarunkowanych macierzy są stabilniejsze i mniej podatne na błędy, nawet w obecności zaburzeń.
+    \item Współczynnik uwarunkowania macierzy jest kluczowym wskaźnikiem stabilności układu równań. Wyższa wartość \( \kappa(A) \) oznacza większą podatność na błędy, co może prowadzić do znaczących zmian w rozwiązaniach.
+    \item W przypadku zastosowań wymagających wysokiej dokładności, zalecane jest stosowanie macierzy dobrze uwarunkowanych lub technik, które poprawiają stabilność obliczeń.
+\end{itemize}
+
+\end{document}
