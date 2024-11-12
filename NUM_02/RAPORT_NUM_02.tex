@@ -54,6 +54,34 @@ gdzie \( || \cdot || \) oznacza normę macierzy. Wartość \( \kappa(A) \) mówi
 \end{itemize}
 W praktyce, dobrze uwarunkowane układy zapewniają stabilność obliczeń i dokładność wyników, co jest szczególnie ważne w zastosowaniach, gdzie precyzja jest kluczowa.
 
+\section{Wyniki}
+Po rozwiązaniu układów równań dla macierzy \( A_1 \) i \( A_2 \), uzyskano następujące wyniki:
+\begin{itemize}
+    \item Rozwiązania dla macierzy \( A_1 \) i wektora \( b \):
+    \[
+    y_{A_1} = \begin{pmatrix} 0.02556195 \\ -1.35714283 \\ -3.94075752 \\ -0.48893629 \\ 0.10097805 \end{pmatrix}
+    \]
+    \item Rozwiązania dla macierzy \( A_2 \) i wektora \( b \):
+    \[
+    y_{A_2} = \begin{pmatrix} -0.40875927 \\ -0.56030015 \\ -4.11200052 \\ -1.52420275 \\ -0.77520275 \end{pmatrix}
+    \]
+    \item Rozwiązania dla macierzy \( A_1 \) i zaburzonego wektora \( b + \Delta b \):
+    \[
+    y_{A_1}^{\text{perturbed}} = \begin{pmatrix} 0.025562 \\ -1.3571428 \\ -3.94075729 \\ -0.48893615 \\ 0.10097813 \end{pmatrix}
+    \]
+    \item Rozwiązania dla macierzy \( A_2 \) i zaburzonego wektora \( b + \Delta b \):
+    \[
+    y_{A_2}^{\text{perturbed}} = \begin{pmatrix} 3436.54607478 \\ -6306.29024323 \\ 1351.00125669 \\ 8190.94694053 \\ 6932.7885212 \end{pmatrix}
+    \]
+    \item Różnice między wynikami dla oryginalnego i zaburzonego wektora \( b \):
+    \[
+    \text{Dla } A_1: \quad \| y_{A_1} - y_{A_1}^{\text{perturbed}} \| \approx 2.91 \times 10^{-7}
+    \]
+    \[
+    \text{Dla } A_2: \quad \| y_{A_2} - y_{A_2}^{\text{perturbed}} \| \approx 12984.69
+    \]
+\end{itemize}
+
 \section{Omówienie wyników}
 Po rozwiązaniu układów dla obu macierzy \( A_1 \) i \( A_2 \) oraz dla wektora \( b \) z perturbacją \( \Delta b \), uzyskano następujące obserwacje:
 \begin{itemize}
